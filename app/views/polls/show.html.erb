@@ -1,0 +1,19 @@
+<h1><%= @poll.title %></h1>
+<ul>
+  <% @poll.choices.each do |choice| %>
+    <li>
+      <%= choice.title %>
+    </li>
+  <% end %>
+  <li>
+    <%= form_with model: [@poll, @poll.choices.build] do |form| %>
+      <div>
+        <%= form.text_field :title %>
+      </div>
+
+      <div>
+        <%= form.submit %>
+      </div>
+    <% end %>
+  </li>
+</ul>
